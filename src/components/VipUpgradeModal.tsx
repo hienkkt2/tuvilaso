@@ -368,36 +368,42 @@ export const VipUpgradeModal: React.FC<VipUpgradeModalProps> = ({
                   </h5>
                 </div>
 
-                {/* Simulated VietQR Box */}
-                <div className="relative p-3 bg-white rounded-2xl shadow-lg border-2 border-amber-400">
+                {/* Real VietQR Code with Techcombank */}
+                <div className="relative p-3 bg-white rounded-2xl shadow-xl border-2 border-amber-400">
                   <img
-                    src={`https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://tuvi.vansulanh.vn/pay?amount=${selectedTopupAmount}`}
-                    alt="VietQR Payment"
-                    className="w-44 h-44 object-contain rounded-lg"
+                    src={`https://img.vietqr.io/image/TCB-8396869395-compact2.png?amount=${selectedTopupAmount}&addInfo=NAP%20TUVI%20${wallet.coins + 777}&accountName=DOAN%20DINH%20HIEN`}
+                    onError={(e) => {
+                      // Fallback if VietQR API has network latency
+                      (e.target as HTMLImageElement).src = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://tuvi.vansulanh.vn/pay?bank=TCB&acc=8396869395&amount=${selectedTopupAmount}&name=DOAN%20DINH%20HIEN`;
+                    }}
+                    alt="VietQR Techcombank Payment"
+                    className="w-64 h-64 sm:w-72 sm:h-72 object-contain rounded-xl"
                   />
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <div className="w-8 h-8 rounded-full bg-amber-600 border-2 border-white flex items-center justify-center text-white text-xs font-bold">
-                      ☯
+                    <div className="w-9 h-9 rounded-full bg-red-600 border-2 border-white flex items-center justify-center text-white text-xs font-black shadow-md">
+                      TCB
                     </div>
                   </div>
                 </div>
 
-                <div className="w-full text-left text-xs font-mono bg-[#0c0a0f] p-3 rounded-xl border border-amber-900/40 text-amber-200 space-y-1">
-                  <div className="flex justify-between">
+                <div className="w-full text-left text-xs font-mono bg-[#0c0a0f] p-3.5 rounded-xl border border-amber-900/40 text-amber-200 space-y-1.5">
+                  <div className="flex justify-between items-center">
                     <span className="text-amber-400/60">Ngân hàng:</span>
-                    <strong>MB Bank (Quân Đội)</strong>
+                    <strong className="text-amber-100 font-bold text-sm">Techcombank</strong>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between items-center">
                     <span className="text-amber-400/60">Số TK:</span>
-                    <strong className="text-yellow-300">8888 9999 6868</strong>
+                    <strong className="text-yellow-300 font-bold text-base tracking-wider">8396869395</strong>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between items-center">
                     <span className="text-amber-400/60">Chủ TK:</span>
-                    <span>TU VI VAN SU LANH</span>
+                    <strong className="text-amber-100 uppercase font-semibold">ĐOÀN ĐÌNH HIỂN</strong>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-amber-400/60">Nội dung:</span>
-                    <strong className="text-yellow-300 font-bold">TUVI {wallet.coins + 777}</strong>
+                  <div className="flex justify-between items-center">
+                    <span className="text-amber-400/60">Nội dung CK:</span>
+                    <strong className="text-yellow-300 font-bold bg-amber-950/60 px-2.5 py-1 rounded border border-amber-800/40">
+                      NAP TUVI {wallet.coins + 777}
+                    </strong>
                   </div>
                 </div>
 
