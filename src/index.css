@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #0c0b0e;
+    color: #f3f0e6;
+  }
+
+  h1, h2, h3, .font-cinzel {
+    font-family: 'Cinzel', 'Noto Serif', serif;
+  }
+
+  .font-serif-vi {
+    font-family: 'Noto Serif', serif;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #121118;
+}
+::-webkit-scrollbar-thumb {
+  background: #3a3224;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #855b25;
+}
+
+/* Oriental parchment texture and golden glow */
+.gold-glow {
+  box-shadow: 0 0 25px rgba(234, 179, 8, 0.15);
+}
+
+.gold-glow-strong {
+  box-shadow: 0 0 35px rgba(245, 158, 11, 0.3);
+}
+
+.crimson-glow {
+  box-shadow: 0 0 25px rgba(220, 38, 38, 0.2);
+}
+
+.mystic-border {
+  border-color: rgba(217, 119, 6, 0.3);
+}
+
+.court-box {
+  background: radial-gradient(circle at 50% 0%, rgba(30, 25, 20, 0.8) 0%, rgba(15, 14, 18, 0.95) 100%);
+}
+
+@keyframes coinFlip {
+  0% { transform: translateY(0) rotateY(0); }
+  50% { transform: translateY(-30px) rotateY(540deg); }
+  100% { transform: translateY(0) rotateY(1080deg); }
+}
+
+.animate-coin {
+  animation: coinFlip 0.8s ease-out;
+}

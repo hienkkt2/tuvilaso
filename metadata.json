@@ -1,0 +1,7 @@
+{
+  "name": "Tử Vi & Vạn Sự Lành - Xem Ngày Giờ Tốt Xấu & Tử Vi Trọn Đời",
+  "description": "Ứng dụng tra cứu Lịch Vạn Niên, xem ngày giờ hoàng đạo tốt xấu, lập lá số và luận giải Tử Vi trọn đời, gieo quẻ Kinh Dịch và đàm đạo phong thủy.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
